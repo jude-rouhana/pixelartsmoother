@@ -22,14 +22,6 @@
       "use": "@vercel/python@3.1.0"
     }
   ],
-  "functions": {
-    "process-image.py": {
-      "runtime": "@vercel/python@3.1.0"
-    },
-    "create-gif.py": {
-      "runtime": "@vercel/python@3.1.0"
-    }
-  },
   "routes": [
     {
       "src": "/api/process-image",
