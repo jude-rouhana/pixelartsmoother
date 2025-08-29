@@ -1,27 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "*.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.js",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.css",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "process-image.py",
-      "use": "@vercel/python@3.0.0"
-    },
-    {
-      "src": "create-gif.py",
-      "use": "@vercel/python@3.0.0"
-    }
-  ],
   "routes": [
     {
       "src": "/api/process-image",
