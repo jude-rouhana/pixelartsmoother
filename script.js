@@ -136,7 +136,7 @@ function processImage() {
     
     // Send to backend - always use high-res upscale
     // Use different endpoints for local development vs production
-    const apiEndpoint = window.location.port === '8080' ? '/process-image' : '/api/process-image';
+    const apiEndpoint = window.location.port === '8080' ? '/process-image' : 'https://pixelartsmoother.onrender.com/api/process-image';
     fetch(apiEndpoint, {
         method: 'POST',
         headers: {
@@ -236,7 +236,7 @@ function createGif() {
     }
     
     // Use different endpoints for local development vs production
-    const gifEndpoint = window.location.port === '8080' ? '/create-gif' : '/api/create-gif';
+    const gifEndpoint = window.location.port === '8080' ? '/create-gif' : 'https://pixelartsmoother.onrender.com/api/create-gif';
     fetch(gifEndpoint, {
         method: 'POST',
         headers: {
