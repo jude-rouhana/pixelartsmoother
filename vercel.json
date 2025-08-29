@@ -15,11 +15,11 @@
     },
     {
       "src": "process-image.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python@3.0.0"
     },
     {
       "src": "create-gif.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python@3.0.0"
     }
   ],
   "routes": [
