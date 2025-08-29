@@ -136,7 +136,7 @@ function processImage() {
     
     // Send to backend - always use high-res upscale
     // Use different endpoints for local development vs production
-    const apiEndpoint = window.location.port === '8080' ? '/process-image' : 'https://pixelartsmoother.onrender.com/api/process-image';
+    const apiEndpoint = window.location.port === '8080' ? '/process-image' : 'https://pixelartsmoother.onrender.com/process-image';
     fetch(apiEndpoint, {
         method: 'POST',
         headers: {
