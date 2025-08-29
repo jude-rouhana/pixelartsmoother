@@ -1,0 +1,539 @@
+/* Font Face Declaration */
+@font-face {
+    font-family: 'Pixgamer';
+    src: url('PixgamerRegular-OVD6A.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pixgamer', 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
+    background: #c0c0c0;
+    min-height: 100vh;
+    color: #000;
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #000;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+    font-family: 'Pixgamer', sans-serif;
+    letter-spacing: 1px;
+}
+
+header h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+    font-family: 'Pixgamer', sans-serif;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 1.2rem;
+    font-weight: normal;
+    font-family: 'Pixgamer', sans-serif;
+}
+
+/* Main Content */
+main {
+    background: #c0c0c0;
+    border: 2px outset #c0c0c0;
+    padding: 1rem;
+    box-shadow: inset 1px 1px 0px #fff, inset -1px -1px 0px #808080;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #000;
+    font-family: 'Pixgamer', sans-serif;
+    background: #c0c0c0;
+    padding: 2px 4px;
+    border: 1px outset #c0c0c0;
+}
+
+section h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #000;
+    font-family: 'Pixgamer', sans-serif;
+}
+
+/* Upload Area */
+.upload-area {
+    border: 2px outset #c0c0c0;
+    padding: 1rem;
+    text-align: center;
+    background: #c0c0c0;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 0px #fff, inset -1px -1px 0px #808080;
+}
+
+.upload-area:hover {
+    border: 2px inset #c0c0c0;
+    box-shadow: inset -1px -1px 0px #fff, inset 1px 1px 0px #808080;
+}
+
+.upload-area.dragover {
+    border: 2px inset #c0c0c0;
+    box-shadow: inset -1px -1px 0px #fff, inset 1px 1px 0px #808080;
+}
+
+.upload-area.small {
+    padding: 0.5rem;
+}
+
+.upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.upload-icon {
+    width: 32px;
+    height: 32px;
+    color: #000;
+    stroke-width: 2;
+}
+
+.upload-area:hover .upload-icon {
+    color: #000;
+}
+
+.upload-btn {
+    background: #c0c0c0;
+    color: #000;
+    border: 2px outset #c0c0c0;
+    padding: 4px 12px;
+    font-weight: normal;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: 'Pixgamer', sans-serif;
+    box-shadow: inset 1px 1px 0px #fff, inset -1px -1px 0px #808080;
+}
+
+.upload-btn:hover {
+    border: 2px inset #c0c0c0;
+    box-shadow: inset -1px -1px 0px #fff, inset 1px 1px 0px #808080;
+}
+
+.upload-btn.small {
+    padding: 2px 8px;
+    font-size: 20px;
+}
+
+/* Preview Section */
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.preview-card {
+    background: #c0c0c0;
+    padding: 0.5rem;
+    border: 2px outset #c0c0c0;
+    box-shadow: inset 1px 1px 0px #fff, inset -1px -1px 0px #808080;
+}
+
+.preview-card h3 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.image-container {
+    width: 100%;
+    min-height: 150px;
+    max-height: 80vh;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px inset #c0c0c0;
+    position: relative;
+    transition: height 0.3s ease;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Ensure crisp pixel rendering for pixel art */
+.preview-card:first-child .image-container img {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Options Section */
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.option-item {
+    background: #c0c0c0;
+    padding: 0.5rem;
+    border: 2px outset #c0c0c0;
+    box-shadow: inset 1px 1px 0px #fff, inset -1px -1px 0px #808080;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: normal;
+    margin-bottom: 0.25rem;
+    font-size: 12px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    display: none;
+}
+
+.checkmark {
+    width: 16px;
+    height: 16px;
+    border: 2px outset #c0c0c0;
+    margin-right: 0.5rem;
+    position: relative;
+    background: #c0c0c0;
+    box-shadow: inset 1px 1px 0px #fff, inset -1px -1px 0px #808080;
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark {
+    background: #c0c0c0;
+    border: 2px inset #c0c0c0;
+    box-shadow: inset -1px -1px 0px #fff, inset 1px 1px 0px #808080;
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.option-description {
+    color: #000;
+    font-size: 10px;
+    margin-left: 2.25rem;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 4px 12px;
+    border: 2px outset #c0c0c0;
+    font-weight: normal;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 80px;
+    justify-content: center;
+    font-family: 'Pixgamer', sans-serif;
+    background: #c0c0c0;
+    color: #000;
+    box-shadow: inset 1px 1px 0px #fff, inset -1px -1px 0px #808080;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border: 2px inset #c0c0c0;
+    box-shadow: inset -1px -1px 0px #fff, inset 1px 1px 0px #808080;
+}
+
+.btn-primary {
+    background: #c0c0c0;
+    color: #000;
+}
+
+.btn-primary:hover:not(:disabled) {
+    border: 2px inset #c0c0c0;
+    box-shadow: inset -1px -1px 0px #fff, inset 1px 1px 0px #808080;
+}
+
+.btn-secondary {
+    background: #c0c0c0;
+    color: #000;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    border: 2px inset #c0c0c0;
+    box-shadow: inset -1px -1px 0px #fff, inset 1px 1px 0px #808080;
+}
+
+/* Pixel Loading Animation */
+.pixel-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Pixgamer', sans-serif;
+    font-size: 20px;
+    color: #000;
+}
+
+.pixel-dots {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.pixel-dot {
+    width: 8px;
+    height: 8px;
+    background: #000;
+    image-rendering: pixelated;
+    animation: pixelPulse 1.2s ease-in-out infinite;
+}
+
+.pixel-dot:nth-child(1) { animation-delay: 0s; }
+.pixel-dot:nth-child(2) { animation-delay: 0.2s; }
+.pixel-dot:nth-child(3) { animation-delay: 0.4s; }
+.pixel-dot:nth-child(4) { animation-delay: 0.6s; }
+.pixel-dot:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes pixelPulse {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% { 
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+.pixel-text {
+    font-weight: normal;
+    letter-spacing: 1px;
+    animation: pixelGlow 2s ease-in-out infinite;
+}
+
+@keyframes pixelGlow {
+    0%, 100% { 
+        text-shadow: 0 0 2px #000;
+    }
+    50% { 
+        text-shadow: 0 0 4px #000, 0 0 8px #000;
+    }
+}
+
+/* Loading Spinner (keeping for compatibility) */
+.spinner {
+    width: 12px;
+    height: 12px;
+    border: 2px solid #808080;
+    border-top: 2px solid #000;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* GIF Section */
+.gif-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.character-btn {
+    background: #c0c0c0;
+    border: 2px outset #c0c0c0;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    box-shadow: inset 1px 1px 0px #fff, inset -1px -1px 0px #808080;
+}
+
+.character-btn:hover {
+    border: 2px inset #c0c0c0;
+    box-shadow: inset -1px -1px 0px #fff, inset 1px 1px 0px #808080;
+}
+
+.character-btn.active {
+    border: 2px inset #c0c0c0;
+    box-shadow: inset -1px -1px 0px #fff, inset 1px 1px 0px #808080;
+}
+
+.character-btn img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.character-btn span {
+    font-weight: normal;
+    color: #000;
+    font-size: 10px;
+}
+
+/* Status Messages */
+.status-message {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    color: #000;
+    font-weight: normal;
+    z-index: 1000;
+    animation: slideIn 0.3s ease;
+    background: #c0c0c0;
+    border: 2px outset #c0c0c0;
+    box-shadow: inset 1px 1px 0px #fff, inset -1px -1px 0px #808080;
+    font-size: 12px;
+}
+
+.status-message.success {
+    background: #c0c0c0;
+}
+
+.status-message.error {
+    background: #c0c0c0;
+}
+
+.status-message.info {
+    background: #c0c0c0;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    main {
+        padding: 1.5rem;
+    }
+    
+    .preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .image-container {
+        min-height: 120px;
+        max-height: 60vh;
+    }
+    
+    .gif-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .character-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .character-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+}

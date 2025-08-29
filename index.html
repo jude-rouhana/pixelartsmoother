@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Art Smoother</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pixel Art Smoother</h1>
+            <h2>Transform your pixel art using smoothing and upscaling algorithms</h2>
+            <p>A project by Jacob Helzner and Jude Rouhana</p>
+        </header>
+
+        <main>
+            <!-- Image Upload Section -->
+            <section class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <h3>Upload Pixel Art Image</h3>
+                        <p>Click the button below to select your image</p>
+                        <input type="file" id="imageInput" accept="image/*" hidden>
+                        <button class="upload-btn">
+                            Choose Files
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Preview Section -->
+            <section class="preview-section" id="previewSection" style="display: none;">
+                <h2>Preview Results</h2>
+                <div class="preview-grid">
+                    <div class="preview-card">
+                        <h3>Original</h3>
+                        <div class="image-container">
+                            <img id="originalPreview" alt="Original image">
+                        </div>
+                    </div>
+                    <div class="preview-card">
+                        <h3>High Res Upscale</h3>
+                        <div class="image-container">
+                            <img id="highResPreview" alt="High resolution upscale">
+                            <div class="pixel-loader" id="highResLoader" style="display: none;">
+                                <div class="pixel-dots">
+                                    <div class="pixel-dot"></div>
+                                    <div class="pixel-dot"></div>
+                                    <div class="pixel-dot"></div>
+                                    <div class="pixel-dot"></div>
+                                    <div class="pixel-dot"></div>
+                                </div>
+                                <div class="pixel-text">PROCESSING</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons" style="padding: 1rem 0">
+                    <button class="btn btn-primary" id="downloadBtn" disabled>
+                        Download Result
+                    </button>
+                </div>
+            </section>
+
+            <!-- GIF Creation Section -->
+            <!-- <section class="gif-section">
+                <h2>Create Animated GIFs</h2>
+                <p>Generate smooth animated GIFs from sprite sheets</p>
+                
+                <div class="gif-options">
+                    <div class="preset-characters">
+                        <h3>Preset Characters</h3>
+                        <div class="character-grid">
+                            <button class="character-btn" data-character="samus">
+                                <img src="samus2.png" alt="Samus" onerror="this.style.display='none'">
+                                <span>Samus</span>
+                            </button>
+                            <button class="character-btn" data-character="fei">
+                                <img src="fei.gif" alt="Fei" onerror="this.style.display='none'">
+                                <span>Fei</span>
+                            </button>
+                            <button class="character-btn" data-character="bart">
+                                <img src="bart.gif" alt="Bart" onerror="this.style.display='none'">
+                                <span>Bart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="createGifBtn" disabled>
+                        <span class="btn-text">Create GIF</span>
+                        <span class="btn-loading" style="display: none;">
+                            <div class="spinner"></div>
+                            Creating...
+                        </span>
+                    </button>
+                    <button class="btn btn-secondary" id="downloadGifBtn" disabled>
+                        Download GIF
+                    </button>
+                </div>
+            </section> -->
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

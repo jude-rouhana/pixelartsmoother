@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "functions": {
+    "process-image.py": {
+      "runtime": "@vercel/python@3.1.0"
+    },
+    "create-gif.py": {
+      "runtime": "@vercel/python@3.1.0"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/process-image",
+      "dest": "/process-image.py"
+    },
+    {
+      "src": "/api/create-gif",
+      "dest": "/create-gif.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
